@@ -5,24 +5,36 @@ const IERC721Metadata = require("../abis/IERC721Metadata.json");
 
 const retrieveNftMetadata = async (req, res) => {
   try {
+    const WEB3_HTTP_PROVIDER = process.env.WEB3_HTTP_PROVIDER;
+
+    if (!WEB3_HTTP_PROVIDER) {
+      return res.status(500).json({ error: "WEB3_HTTP_PROVIDER is not set" });
+    }
+
     const { contractAddress, tokenId } = req.query;
 
     if (!contractAddress) {
       return res.status(400).json({ error: "contractAddress is required" });
     }
 
+    const isValidEthAddress = /^0x[a-fA-F0-9]{40}$/.test(contractAddress);
+
+    if (!isValidEthAddress) {
+      return res.status(400).json({ error: "contract address should be a valid Ethereum address" });
+    }
+
     if (!tokenId) {
       return res.status(400).json({ error: "tokenId is required" });
     }
 
-    const web3HttpProvider = process.env.WEB3_HTTP_PROVIDER;
+    const isValidInteger = /^[0-9]+$/.test(tokenId);
 
-    if (!web3HttpProvider) {
-      return res.status(500).json({ error: "WEB3_HTTP_PROVIDER is not set" });
+    if (!isValidInteger) {
+      return res.status(400).json({ error: "tokenId should be an integer" });
     }
 
     const web3 = new Web3(
-      new Web3.providers.HttpProvider(web3HttpProvider)
+      new Web3.providers.HttpProvider(WEB3_HTTP_PROVIDER)
     );
 
     const contract = new web3.eth.Contract(IERC721Metadata, contractAddress);
