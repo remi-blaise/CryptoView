@@ -8,7 +8,7 @@ It uses Infura, Etherscan and Pinata.
 
 Don't forget to add the new `.env` variables:
 
-````
+```
 # NEW VARIABLES!
 WEB3_HTTP_PROVIDER=https://mainnet.infura.io/v3/48c4c16c37704d38b2f6bcf07d37e505
 ETHERSCAN_API_KEY=2Y3BNV92N6T6K5NIBHJXGR1HVV7VANVUIB
