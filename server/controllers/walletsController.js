@@ -39,8 +39,6 @@ const fetchTransactions = async (req, res) => {
       .slice(0, 5)
       .map((tx) => ({ ...tx, walletAddress: address }));
 
-    console.log(transactions);
-
     await WalletTransactionsSchema.insertMany(transactions);
 
     res.json(transactions);

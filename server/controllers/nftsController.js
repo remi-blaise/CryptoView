@@ -38,7 +38,6 @@ const retrieveNftMetadata = async (req, res) => {
     );
 
     const contract = new web3.eth.Contract(IERC721Metadata, contractAddress);
-    console.log("Calling tokenURI");
 
     const tokenURI = await contract.methods.tokenURI(tokenId).call();
 
@@ -52,18 +51,12 @@ const retrieveNftMetadata = async (req, res) => {
       });
     }
 
-    console.log("tokenURI", tokenURI);
-
     const httpURI = tokenURI.startsWith("http")
       ? tokenURI
       : `https://ipfs.io/ipfs/${tokenURI.slice("ipfs://".length)}`;
 
-    console.log("httpURI", httpURI);
-
     const response = await fetch(httpURI);
     const metadata = await response.json();
-
-    console.log(metadata);
 
     const nftMetadata = new NftMetadataSchema({
       contractAddress,
