@@ -1,5 +1,21 @@
 # CryptoView
 
+## Solution
+
+The solution implements challenges 1, 2 and 3.
+
+It uses Infura, Etherscan and Pinata.
+
+Don't forget to add the new `.env` variables:
+
+````
+# NEW VARIABLES!
+WEB3_HTTP_PROVIDER=https://mainnet.infura.io/v3/48c4c16c37704d38b2f6bcf07d37e505
+ETHERSCAN_API_KEY=2Y3BNV92N6T6K5NIBHJXGR1HVV7VANVUIB
+PINATA_API_KEY=91d77893b7f22112f498
+PINATA_API_SECRET=ad030c555325d7428ed95ab3d885c589d76c1210db46615fd85951336d0d89bb
+```
+
 ## Crypto Trading Platform
 
 This is a simple MERN stack application that displays current prices of cryptocurrencies and allows users to trade them.
