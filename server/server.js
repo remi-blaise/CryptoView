@@ -8,6 +8,7 @@ const transactionsRoutes = require("./routes/Transactions.js");
 const userPortfolio = require("./routes/userPortfolio.js");
 const nftsRoutes = require("./routes/nfts.js");
 const walletsRoutes = require("./routes/wallets.js");
+const ipfsRoutes = require("./routes/ipfs.js");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -38,6 +39,7 @@ app.use("/api/transactions/", transactionsRoutes);
 app.use("/api/users/", usersRoutes);
 app.use("/api/nfts/", nftsRoutes);
 app.use("/api/wallets/", walletsRoutes);
+app.use("/api/ipfs/", ipfsRoutes);
 
 //connect to db et lancement du server
 mongoose
