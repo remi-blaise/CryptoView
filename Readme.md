@@ -35,6 +35,12 @@ This is a simple MERN stack application that displays current prices of cryptocu
      MONG_URI=mongodb+srv://salceanu:f34mqJgy29B61Mm7@labsdatabase.5913czx.mongodb.net/?retryWrites=true&w=majority&appName=labsdatabase
      PORT=5000
      VITE_X_CG_DEMO_API_KEY=CG-1t8kdBZJMA1YUmpjF5nypF6R
+
+     # NEW VARIABLES!
+     WEB3_HTTP_PROVIDER=https://mainnet.infura.io/v3/48c4c16c37704d38b2f6bcf07d37e505
+     ETHERSCAN_API_KEY=2Y3BNV92N6T6K5NIBHJXGR1HVV7VANVUIB
+     PINATA_API_KEY=91d77893b7f22112f498
+     PINATA_API_SECRET=ad030c555325d7428ed95ab3d885c589d76c1210db46615fd85951336d0d89bb
      ```
 
 4. **Start the Server:**
